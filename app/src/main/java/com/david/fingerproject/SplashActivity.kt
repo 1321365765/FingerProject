@@ -1,9 +1,14 @@
 package com.david.fingerproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.airbnb.lottie.LottieDrawable
+import com.david.fingerlibrary.SettingsActivity
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_splash.*
+import java.util.concurrent.TimeUnit
+import io.reactivex.android.schedulers.AndroidSchedulers
+
 
 class SplashActivity : AppCompatActivity() {
 
@@ -18,5 +23,12 @@ class SplashActivity : AppCompatActivity() {
                 lottie_layer_name.pauseAnimation()
             }
         }
+
+        Observable.timer(5000, TimeUnit.MILLISECONDS)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                startActivity(Intent(this, SettingsActivity::class.java))
+            }
+
     }
 }
