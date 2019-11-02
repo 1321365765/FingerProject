@@ -14,9 +14,9 @@ public class FileLoggingTree extends Timber.DebugTree {
 
     public FileLoggingTree() {
         if (BuildConfig.DEBUG) {
-            mLogger = LoggerFactory.getLogger("logtest");
-        } else {
             mLogger = LoggerFactory.getLogger(FileLoggingTree.class);
+        } else {
+            mLogger = LoggerFactory.getLogger("logtest");
         }
     }
 

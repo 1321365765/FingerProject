@@ -14,30 +14,43 @@
   ~ limitations under the License.
   -->
 
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/messages_header">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
+    <PreferenceCategory app:title="@string/system_setting_header">
 
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
+            app:defaultValue="Fugue"
+            app:entries="@array/device_entries"
+            app:entryValues="@array/device_values"
+            app:key="device_name"
+            app:title="@string/device_title"
             app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:defaultValue="40"
+            app:key="enrol_count"
+            app:title="@string/enrol_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:defaultValue="20"
+            app:key="verify_count"
+            app:title="@string/verify_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:key="auto_touch"
+            app:title="@string/auto_touch_title" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+
+    <PreferenceCategory app:title="@string/store_header">
 
         <SwitchPreferenceCompat
             app:key="sync"
-            app:title="@string/sync_title" />
+            app:title="@string/auto_touch_title" />
 
         <SwitchPreferenceCompat
             app:dependency="sync"
@@ -46,6 +59,13 @@
             app:summaryOn="@string/attachment_summary_on"
             app:title="@string/attachment_title" />
 
+    </PreferenceCategory>
+
+
+    <PreferenceCategory app:title="@string/calibration_header">
+        <com.david.fingerlibrary.Preference.TextPreference
+            app:title="校准说明"
+            app:key="test" />
     </PreferenceCategory>
 
 </PreferenceScreen>

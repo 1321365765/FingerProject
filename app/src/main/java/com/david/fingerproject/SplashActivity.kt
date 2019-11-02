@@ -3,6 +3,7 @@ package com.david.fingerproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.david.fingerlibrary.FingerActivity
 import com.david.fingerlibrary.SettingsActivity
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -27,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
         Observable.timer(5000, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                startActivity(Intent(this, SettingsActivity::class.java))
+                startActivity(Intent(this, FingerActivity::class.java))
             }
 
     }
