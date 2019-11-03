@@ -3,6 +3,7 @@
     <string name="title_activity_settings">Settings</string>
 
     <!-- Preference Titles -->
+    <string name="user_header">用户设置</string>
     <string name="system_setting_header">系统设置</string>
     <string name="calibration_header">校准设置</string>
     <string name="store_header">store设置</string>
@@ -13,7 +14,8 @@
     <string name="verify_title">verify数量</string>
     <string name="auto_touch_title">自动检测Touch</string>
 
-
+    <string name="store_title">store</string>
+    <string name="user_title">用户id</string>
 
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>

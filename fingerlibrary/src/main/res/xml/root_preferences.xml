@@ -14,8 +14,20 @@
   ~ limitations under the License.
   -->
 
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory app:title="@string/user_header">
+
+        <!-- 用户目录 -->
+        <EditTextPreference
+            app:defaultValue="20"
+            app:key="user_name"
+            app:title="@string/user_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/system_setting_header">
 
@@ -47,6 +59,14 @@
 
 
     <PreferenceCategory app:title="@string/store_header">
+        <!-- 选择store目录 -->
+
+        <EditTextPreference
+            app:defaultValue="20"
+            app:key="store_name"
+            app:title="@string/store_title"
+            app:useSimpleSummaryProvider="true" />
+
 
         <SwitchPreferenceCompat
             app:key="sync"
@@ -64,8 +84,8 @@
 
     <PreferenceCategory app:title="@string/calibration_header">
         <com.david.fingerlibrary.Preference.TextPreference
-            app:title="校准说明"
-            app:key="test" />
+            app:key="test"
+            app:title="校准说明" />
     </PreferenceCategory>
 
 </PreferenceScreen>

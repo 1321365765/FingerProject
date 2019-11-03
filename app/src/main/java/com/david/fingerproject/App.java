@@ -9,6 +9,10 @@ import com.david.commonlibrary.base.BaseApplication;
 public class App extends BaseApplication {
     private Handler mHandler;
 
+    public Handler getmHandler() {
+        return mHandler;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
