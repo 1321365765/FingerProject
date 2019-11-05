@@ -64,6 +64,9 @@ dependencies {
     //navigation
     api "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     api "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    //dialog
+    api 'com.afollestad.material-dialogs:core:3.1.1'
+    api 'com.afollestad.material-dialogs:input:3.1.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'

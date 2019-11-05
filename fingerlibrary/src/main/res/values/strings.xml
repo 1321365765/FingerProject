@@ -23,4 +23,23 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <!--
+     * 选择的手指
+    *  小指 Little finger
+    *  无名指 Ring finger
+    *  中指 middle finger
+    *  食指 fore finger
+    *  大拇指 thumb
+     -->
+    <string name="finger_little">little</string>
+    <string name="finger_ring">ring</string>
+    <string name="finger_middle">middle</string>
+    <string name="finger_fore">fore</string>
+    <string name="finger_thumb">thumb</string>
+
+
+
+
+
 </resources>

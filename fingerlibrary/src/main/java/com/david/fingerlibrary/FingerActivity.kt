@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.david.fingerlibrary.ui.EnrolViewModel
+import com.david.fingerlibrary.ui.VerifyViewModel
 import kotlinx.android.synthetic.main.activity_finger.*
 
 class FingerActivity : AppCompatActivity() {
@@ -24,7 +25,9 @@ class FingerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_finger)
 
         val enrolViewModel = ViewModelProviders.of(this).get(EnrolViewModel::class.java)
+        val verifyViewModel = ViewModelProviders.of(this).get(VerifyViewModel::class.java)
         lifecycle.addObserver(enrolViewModel)
+        lifecycle.addObserver(verifyViewModel)
 
         val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?: return

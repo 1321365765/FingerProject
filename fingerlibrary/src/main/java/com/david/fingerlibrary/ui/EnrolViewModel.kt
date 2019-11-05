@@ -10,17 +10,19 @@ import timber.log.Timber
 import java.io.File
 import java.io.FileOutputStream
 
-class EnrolViewModel(application: Application) : AndroidViewModel(application), LifecycleObserver,
-    SharedPreferences.OnSharedPreferenceChangeListener {
+class EnrolViewModel(application: Application) : BaseFingerViewModel(application) {
+
+    override fun getStoreDir(): String {
+        return dir + File.separator + store + "/users/enrol/" + user
+    }
+
     override fun onSharedPreferenceChanged(p0: SharedPreferences?, s: String?) {
-        Timber.i("key = $s")
+        super.onSharedPreferenceChanged(p0, s)
+
         minScore = p0!!.getInt("verify_count", 20)
         enrolCount = p0.getInt("enrol_count", 40)
     }
 
-    var minScore: Int = 0
-    var enrolCount: Int = 40
-    var dir = ""
 
     init {
         val settings = PreferenceManager.getDefaultSharedPreferences(application)
@@ -29,8 +31,7 @@ class EnrolViewModel(application: Application) : AndroidViewModel(application), 
         dir = Environment.getExternalStorageDirectory().absolutePath
     }
 
-    //指纹图像
-    val image = MutableLiveData<Bitmap>()
+
     //本次指纹分数 23/20  20代表最低分值
     val score = MutableLiveData<String>()
     //当前采集进度
@@ -44,8 +45,8 @@ class EnrolViewModel(application: Application) : AndroidViewModel(application), 
      * 选择的手指
      *  小指 Little finger
      *  无名指 Ring finger
-     *  中指 middle
-     *  食指 forefinger
+     *  中指 middle finger
+     *  食指 fore finger
      *  大拇指 thumb
      */
     val fingerName: String = ""
@@ -59,30 +60,6 @@ class EnrolViewModel(application: Application) : AndroidViewModel(application), 
         progress.value = rootFile.length()
     }
 
-
-    fun saveFile() {
-        try {
-            val file = File(dir + "test.png")
-            val out = FileOutputStream(file)
-            image.value!!.compress(Bitmap.CompressFormat.PNG, 100, out)
-            out.flush()
-            out.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    fun bytesToImageFile(bytes: ByteArray) {
-        try {
-            val file = File(dir + "test.png")
-            val fos = FileOutputStream(file)
-            fos.write(bytes, 0, bytes.size)
-            fos.flush()
-            fos.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume() {
