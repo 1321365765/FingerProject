@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import com.david.commonlibrary.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_finger.*
 
-class FingerActivity : AppCompatActivity() {
+class FingerActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
