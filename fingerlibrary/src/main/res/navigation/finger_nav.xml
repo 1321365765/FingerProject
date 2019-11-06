@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/finger_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.david.fingerlibrary.ui.MainFragment"
+        android:label="MainFragment">
+
+
+        <action
+            android:id="@+id/action_mainFragment_to_enrolFragment"
+            app:destination="@id/enrolFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_mainFragment_to_verifyFragment"
+            app:destination="@id/verifyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/enrolFragment"
+        android:name="com.david.fingerlibrary.ui.EnrolFragment"
+        android:label="EnrolFragment" />
+    <fragment
+        android:id="@+id/verifyFragment"
+        android:name="com.david.fingerlibrary.ui.VerifyFragment"
+        android:label="vnrolFragment" />
+
+</navigation>

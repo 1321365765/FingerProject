@@ -3,6 +3,7 @@
     <string name="title_activity_settings">Settings</string>
 
     <!-- Preference Titles -->
+    <string name="user_header">用户设置</string>
     <string name="system_setting_header">系统设置</string>
     <string name="calibration_header">校准设置</string>
     <string name="store_header">store设置</string>
@@ -13,7 +14,8 @@
     <string name="verify_title">verify数量</string>
     <string name="auto_touch_title">自动检测Touch</string>
 
-
+    <string name="store_title">store</string>
+    <string name="user_title">用户id</string>
 
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
@@ -21,4 +23,23 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <!--
+     * 选择的手指
+    *  小指 Little finger
+    *  无名指 Ring finger
+    *  中指 middle finger
+    *  食指 fore finger
+    *  大拇指 thumb
+     -->
+    <string name="finger_little">little</string>
+    <string name="finger_ring">ring</string>
+    <string name="finger_middle">middle</string>
+    <string name="finger_fore">fore</string>
+    <string name="finger_thumb">thumb</string>
+
+
+
+
+
 </resources>

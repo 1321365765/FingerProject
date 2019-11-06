@@ -8,6 +8,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import com.david.fingerlibrary.Preference.TextPreference
 import timber.log.Timber
 
 
@@ -24,7 +25,7 @@ class SettingsActivity : AppCompatActivity() {
 
         val settings = PreferenceManager.getDefaultSharedPreferences(this)
         Timber.i(settings.getString("signature", "default").toString())
-        findViewById<TextView>(R.id.tv_text)
+
     }
 
 
@@ -35,7 +36,8 @@ class SettingsActivity : AppCompatActivity() {
             val sp = preferenceScreen.sharedPreferences
             val list = findPreference<ListPreference>("device_name")
             //list.setEntryValues()
-            findPreference<Preference>("test");
+            val textPreference = findPreference<TextPreference>("test")
+
             Timber.i(sp.getString("signature", "default").toString())
 
         }
