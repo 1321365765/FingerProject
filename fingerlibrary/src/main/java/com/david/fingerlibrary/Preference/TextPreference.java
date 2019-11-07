@@ -7,6 +7,9 @@ import android.widget.TextView;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 public class TextPreference extends Preference {
 
@@ -32,5 +35,6 @@ public class TextPreference extends Preference {
         super.onBindViewHolder(holder);
         TextView switchView = (TextView) holder.findViewById(android.R.id.title);
         switchView.setText("校准说明");
+
     }
 }

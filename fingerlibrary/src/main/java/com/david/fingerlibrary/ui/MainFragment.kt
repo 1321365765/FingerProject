@@ -6,13 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
+import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.list.listItems
 
 import com.david.fingerlibrary.R
-import kotlinx.android.synthetic.main.main_fragment.*
+import com.david.fingerlibrary.databinding.FingerMainFragmentBinding
+import java.util.*
 
 class MainFragment : Fragment() {
+    lateinit var mBinding: FingerMainFragmentBinding
 
     companion object {
         fun newInstance() = MainFragment()
@@ -20,26 +26,53 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        mBinding =
+            DataBindingUtil.inflate(inflater, R.layout.finger_main_fragment, container, false)
+        mBinding.viewModel = viewModel
+        return mBinding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        tv_enrol.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, null)
-        }
-        tv_verify.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, null)
-        }
 
+        viewModel.liveData.observe(this, Observer {
+
+            MaterialDialog(activity!!)
+                .title(text = "温馨提示")
+                .message(text = "emmmmmm")
+                .positiveButton(text = "enrol (00/20) "){
+                    findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, null)
+                }
+                .negativeButton(text = "verify (00/20) "){
+                    findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, null)
+                }
+                .show()
+
+
+
+        })
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<View>(R.id.tv_enrol).setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, null)
+        }
+        view.findViewById<View>(R.id.tv_verify).setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, null)
+        }
+    }
 
 
 }

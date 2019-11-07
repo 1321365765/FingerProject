@@ -9,7 +9,6 @@
         android:name="com.david.fingerlibrary.ui.MainFragment"
         android:label="MainFragment">
 
-
         <action
             android:id="@+id/action_mainFragment_to_enrolFragment"
             app:destination="@id/enrolFragment"

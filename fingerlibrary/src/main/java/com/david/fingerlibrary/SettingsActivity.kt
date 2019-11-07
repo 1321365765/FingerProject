@@ -1,6 +1,9 @@
 package com.david.fingerlibrary
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +29,13 @@ class SettingsActivity : AppCompatActivity() {
         val settings = PreferenceManager.getDefaultSharedPreferences(this)
         Timber.i(settings.getString("signature", "default").toString())
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

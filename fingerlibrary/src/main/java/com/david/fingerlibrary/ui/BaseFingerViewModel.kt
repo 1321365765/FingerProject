@@ -38,9 +38,9 @@ abstract class BaseFingerViewModel(application: Application) : AndroidViewModel(
 
     init {
         val settings = PreferenceManager.getDefaultSharedPreferences(application)
-        minScore = settings.getInt("verify_count", 20)
-        enrolCount = settings.getInt("enrol_count", 40)
-        verifyCount = settings.getInt("verify_count", 20)
+//        minScore = settings.getInt("verify_count", 20)
+//        enrolCount = settings.getInt("enrol_count", 40)
+//        verifyCount = settings.getInt("verify_count", 20)
         dir = Environment.getExternalStorageDirectory().absolutePath
     }
 
