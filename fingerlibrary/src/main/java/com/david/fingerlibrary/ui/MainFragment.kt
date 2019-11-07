@@ -30,16 +30,20 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        tv_enrol.setOnClickListener {
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        /*tv_enrol.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, null)
         }
         tv_verify.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, null)
-        }
+        }*/
+
 
     }
-
-
 
 
 }

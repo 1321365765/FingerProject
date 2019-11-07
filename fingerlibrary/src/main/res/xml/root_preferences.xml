@@ -85,7 +85,8 @@
     <PreferenceCategory app:title="@string/calibration_header">
         <com.david.fingerlibrary.Preference.TextPreference
             app:key="test"
-            app:title="校准说明" />
+            app:title="校准说明"
+            app:summary="summary"/>
     </PreferenceCategory>
 
 </PreferenceScreen>
