@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.david.fingerlibrary.R
+import timber.log.Timber
 
 
 class EnrolFragment : Fragment() {
@@ -36,7 +37,7 @@ class EnrolFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(activity!!).get(EnrolViewModel::class.java)
-
+        Timber.i(arguments!!.getString("hand"))
     }
 
 }

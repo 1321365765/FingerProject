@@ -44,16 +44,15 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel.liveData.observe(this, Observer {
-
+        viewModel.liveData.observe(this, Observer<Bundle> { t ->
             MaterialDialog(activity!!)
                 .title(text = "温馨提示")
                 .message(text = "emmmmmm")
                 .neutralButton(text = "enrol (00/20) "){
-                    findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, null)
+                    findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, t)
                 }
                 .negativeButton(text = "verify (00/20) "){
-                    findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, null)
+                    findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, t)
                 }
                 .show()
         })
