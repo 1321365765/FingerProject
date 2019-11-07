@@ -8,7 +8,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class PalmEntity {
+public class HeandEntity {
     /**
      * 选择的手指
      * 小指 Little finger
@@ -19,7 +19,10 @@ public class PalmEntity {
      */
 
     public int littleCount;
-
+    public int ringCount;
+    public int middleCount;
+    public int foreCount;
+    public int thumbCount;
 
     private String name = "左手";
 
@@ -44,6 +47,20 @@ public class PalmEntity {
                                     switch (files[i].getName()) {
                                         case "little":
                                             littleCount = (int) files[i].length();
+                                            break;
+                                        case "ringCount":
+                                            ringCount = (int) files[i].length();
+                                            break;
+                                        case "middleCount":
+                                            middleCount = (int) files[i].length ();
+                                            break;
+                                        case "foreCount":
+                                            foreCount = (int) files[i].length();
+                                            break;
+                                        case "thumbCount":
+                                            thumbCount = (int) files[i].length();
+                                            break;
+                                        default:
                                             break;
                                     }
 

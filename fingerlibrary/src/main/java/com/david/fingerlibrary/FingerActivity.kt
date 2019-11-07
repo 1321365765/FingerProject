@@ -34,8 +34,6 @@ class FingerActivity : BaseActivity() {
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?: return
 
 
-
-
         lottie_finger.setOnTouchListener { _, motionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
                 lottie_finger.playAnimation()

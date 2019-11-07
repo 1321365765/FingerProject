@@ -49,16 +49,13 @@ class MainFragment : Fragment() {
             MaterialDialog(activity!!)
                 .title(text = "温馨提示")
                 .message(text = "emmmmmm")
-                .positiveButton(text = "enrol (00/20) "){
+                .neutralButton(text = "enrol (00/20) "){
                     findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, null)
                 }
                 .negativeButton(text = "verify (00/20) "){
                     findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, null)
                 }
                 .show()
-
-
-
         })
     }
 
@@ -66,12 +63,6 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<View>(R.id.tv_enrol).setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, null)
-        }
-        view.findViewById<View>(R.id.tv_verify).setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, null)
-        }
     }
 
 
