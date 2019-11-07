@@ -22,8 +22,8 @@ class VerifyViewModel(application: Application) : BaseFingerViewModel(applicatio
 
     init {
         val settings = PreferenceManager.getDefaultSharedPreferences(application)
-        minScore = settings.getInt("verify_count", 20)
-        verifyCount = settings.getInt("verify_count", 20)
+//        minScore = settings.getInt("verify_count", 20)
+//        verifyCount = settings.getInt("verify_count", 20)
     }
 
 

@@ -1,5 +1,4 @@
 <resources>
-    <!-- Reply Preference -->
     <string-array name="device_entries">
         <item>Fugue</item>
     </string-array>
@@ -7,4 +6,16 @@
     <string-array name="device_values">
         <item>Fugue</item>
     </string-array>
+
+    <string-array name="language_entries">
+        <item>中文</item>
+        <item>英文</item>
+    </string-array>
+
+    <string-array name="language_values">
+        <item>zh</item>
+        <item>en</item>
+    </string-array>
+
+
 </resources>

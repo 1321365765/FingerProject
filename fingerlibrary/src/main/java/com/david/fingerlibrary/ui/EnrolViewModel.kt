@@ -26,8 +26,9 @@ class EnrolViewModel(application: Application) : BaseFingerViewModel(application
 
     init {
         val settings = PreferenceManager.getDefaultSharedPreferences(application)
-        minScore = settings.getInt("verify_count", 20)
-        enrolCount = settings.getInt("enrol_count", 40)
+
+        minScore = settings.getString("verify_count", "20")!!.toInt()
+        enrolCount = settings.getString("enrol_count", "40")!!.toInt()
         dir = Environment.getExternalStorageDirectory().absolutePath
     }
 

@@ -67,7 +67,8 @@ dependencies {
     //dialog
     api 'com.afollestad.material-dialogs:core:3.1.1'
     api 'com.afollestad.material-dialogs:input:3.1.1'
-
+    //权限申请
+    api 'pub.devrel:easypermissions:3.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'

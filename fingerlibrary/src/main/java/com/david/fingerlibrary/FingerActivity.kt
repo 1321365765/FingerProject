@@ -12,9 +12,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.david.fingerlibrary.ui.EnrolViewModel
 import com.david.fingerlibrary.ui.VerifyViewModel
+import com.david.commonlibrary.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_finger.*
 
-class FingerActivity : AppCompatActivity() {
+class FingerActivity : BaseActivity() {
     private var x1 = 0f
     private var x2 = 0f
     private var y1 = 0f
