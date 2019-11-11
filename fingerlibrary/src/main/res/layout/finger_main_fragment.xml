@@ -21,23 +21,23 @@
             android:id="@+id/tv_enrol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="enrol" />
+            android:text="enrol"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_verify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:visibility="gone"
-            android:text="verify" />
-
+            android:text="verify"
+            android:visibility="gone" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/right_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
             android:visibility="visible">
 
             <ImageView
@@ -52,13 +52,12 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="72dp"
-                android:layout_marginTop="128dp"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="@{viewModel.onRightFingerClick}"
+                android:layout_marginTop="124dp"
+                android:background="@{viewModel.rightHeandEntity.getDrawable(viewModel.rightHeandEntity.thumbCount,viewModel.rightHeandEntity.thumbCount2)}"
+                android:onClick="@{(view)->viewModel.onRightFingerClick(view,viewModel.rightHeandEntity.thumbCount,viewModel.rightHeandEntity.thumbCount2)}"
                 android:tag="@string/finger_thumb"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <TextView
                 android:id="@+id/textView2"
@@ -66,8 +65,8 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="108dp"
                 android:layout_marginTop="68dp"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="@{viewModel.onRightFingerClick}"
+                android:background="@{viewModel.rightHeandEntity.getDrawable(viewModel.rightHeandEntity.foreCount,viewModel.rightHeandEntity.foreCount2)}"
+                android:onClick="@{(view)->viewModel.onRightFingerClick(view,viewModel.rightHeandEntity.foreCount,viewModel.rightHeandEntity.foreCount2)}"
                 android:tag="@string/finger_fore"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -78,8 +77,8 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="144dp"
                 android:layout_marginTop="48dp"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="@{viewModel.onRightFingerClick}"
+                android:background="@{viewModel.rightHeandEntity.getDrawable(viewModel.rightHeandEntity.middleCount,viewModel.rightHeandEntity.middleCount2)}"
+                android:onClick="@{(view)->viewModel.onRightFingerClick(view,viewModel.rightHeandEntity.middleCount,viewModel.rightHeandEntity.middleCount2)}"
                 android:tag="@string/finger_middle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -90,8 +89,8 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="180dp"
                 android:layout_marginTop="60dp"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="@{viewModel.onRightFingerClick}"
+                android:background="@{viewModel.rightHeandEntity.getDrawable(viewModel.rightHeandEntity.ringCount,viewModel.rightHeandEntity.ringCount2)}"
+                android:onClick="@{(view)->viewModel.onRightFingerClick(view,viewModel.rightHeandEntity.ringCount,viewModel.rightHeandEntity.ringCount2)}"
                 android:tag="@string/finger_ring"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -102,8 +101,8 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="212dp"
                 android:layout_marginTop="88dp"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="@{viewModel.onRightFingerClick}"
+                android:background="@{viewModel.rightHeandEntity.getDrawable(viewModel.rightHeandEntity.littleCount,viewModel.rightHeandEntity.littleCount2)}"
+                android:onClick="@{(view)->viewModel.onRightFingerClick(view,viewModel.rightHeandEntity.littleCount,viewModel.rightHeandEntity.littleCount2)}"
                 android:tag="@string/finger_little"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

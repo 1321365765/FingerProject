@@ -1,14 +1,9 @@
 package com.david.fingerlibrary
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.ListPreference
-import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.david.fingerlibrary.Preference.TextPreference
@@ -33,7 +28,7 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            startActivity(Intent(this, SettingsActivity::class.java))
+            finish()
         }
         return super.onOptionsItemSelected(item)
     }

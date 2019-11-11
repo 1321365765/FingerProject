@@ -33,8 +33,8 @@ class MainViewModel(application: Application) : BaseFingerViewModel(application)
         leftHeandEntity.value = HeandEntity()
         rightHeandEntity.value = HeandEntity()
 
-        rightHeandEntity.value!!.initData(getStoreDir())
-        leftHeandEntity.value!!.initData(getStoreDir())
+        rightHeandEntity.value!!.initData(getStoreDir(),enrolCount,verifyCount)
+        leftHeandEntity.value!!.initData(getStoreDir(),enrolCount,verifyCount)
 
     }
 
@@ -44,11 +44,15 @@ class MainViewModel(application: Application) : BaseFingerViewModel(application)
     }
 
 
-    fun onRightFingerClick(view: View) {
-        Timber.i(view.tag.toString())
+    fun onRightFingerClick(view: View,enrol:Int,verify:Int) {
+
+        val finger = view.tag.toString()
         val args = Bundle()
         args.putString("hand", "right")
-        args.putString("finger", view.tag.toString())
+        args.putString("finger", finger)
+
+        args.putInt("enrolCount", enrol)
+        args.putInt("verifyCount", verify)
         liveData.value = args
     }
 
@@ -62,15 +66,4 @@ class MainViewModel(application: Application) : BaseFingerViewModel(application)
     }
 
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .registerOnSharedPreferenceChangeListener(this)
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .unregisterOnSharedPreferenceChangeListener(this)
-    }
 }

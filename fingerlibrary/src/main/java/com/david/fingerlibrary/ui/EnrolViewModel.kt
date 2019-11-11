@@ -28,9 +28,7 @@ class EnrolViewModel(application: Application) : BaseFingerViewModel(application
 
 
     init {
-        val settings = PreferenceManager.getDefaultSharedPreferences(application)
-        minScore = settings.getString("verify_count", "20")!!.toInt()
-        enrolCount = settings.getString("enrol_count", "40")!!.toInt()
+
     }
 
 
@@ -59,16 +57,5 @@ class EnrolViewModel(application: Application) : BaseFingerViewModel(application
     }
 
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .registerOnSharedPreferenceChangeListener(this)
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .unregisterOnSharedPreferenceChangeListener(this)
-    }
 
 }

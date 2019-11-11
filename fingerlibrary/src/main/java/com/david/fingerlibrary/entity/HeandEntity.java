@@ -1,5 +1,7 @@
 package com.david.fingerlibrary.entity;
 
+import com.david.fingerlibrary.R;
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -17,17 +19,29 @@ public class HeandEntity {
      * 食指 fore finger
      * 大拇指 thumb
      */
-
+    //enrol
     public int littleCount;
     public int ringCount;
     public int middleCount;
     public int foreCount;
     public int thumbCount;
 
+    //verify
+    public int littleCount2;
+    public int ringCount2;
+    public int middleCount2;
+    public int foreCount2;
+    public int thumbCount2;
+
     private String name = "左手";
 
+    private int enrolCount;
+    private int verifyCount;
+
     //store+user
-    public void initData(final String filePath) {
+    public void initData(final String filePath, int enrolCount, int verifyCount) {
+        this.enrolCount = enrolCount;
+        this.verifyCount = verifyCount;
         Observable.timer(1, TimeUnit.MILLISECONDS)
                 .observeOn(Schedulers.io())
                 .subscribeOn(Schedulers.io())
@@ -52,7 +66,7 @@ public class HeandEntity {
                                             ringCount = (int) files[i].length();
                                             break;
                                         case "middleCount":
-                                            middleCount = (int) files[i].length ();
+                                            middleCount = (int) files[i].length();
                                             break;
                                         case "foreCount":
                                             foreCount = (int) files[i].length();
@@ -82,5 +96,23 @@ public class HeandEntity {
                     }
                 });
     }
+
+    public int getDrawable(int enrol, int verify) {
+        if (enrol == 0 && verify == 0) {
+            return R.drawable.finger_ripple;
+        }
+
+        if (enrol < enrolCount) {
+
+        }
+        if (verify < verifyCount) {
+
+        }
+        if (enrol == enrolCount && verify == verifyCount) {
+            return 0;
+        }
+        return R.drawable.finger_ripple;
+    }
+
 
 }

@@ -28,7 +28,7 @@ class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -48,10 +48,10 @@ class MainFragment : Fragment() {
             MaterialDialog(activity!!)
                 .title(text = "温馨提示")
                 .message(text = "emmmmmm")
-                .neutralButton(text = "enrol (00/20) "){
+                .neutralButton(text = "enrol (${t.getInt("enrol")}/20) "){
                     findNavController().navigate(R.id.action_mainFragment_to_enrolFragment, t)
                 }
-                .negativeButton(text = "verify (00/20) "){
+                .negativeButton(text = "verify (${t.getInt("verify")}/20) "){
                     findNavController().navigate(R.id.action_mainFragment_to_verifyFragment, t)
                 }
                 .show()

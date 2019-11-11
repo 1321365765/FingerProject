@@ -37,7 +37,7 @@ class EnrolFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(activity!!).get(EnrolViewModel::class.java)
-        Timber.i(arguments!!.getString("hand"))
+        Timber.i(arguments!!.getString("finger"))
     }
 
 }
