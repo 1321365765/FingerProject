@@ -3,6 +3,7 @@ package com.david.commonlibrary.base;
 import android.Manifest;
 import android.content.Context;
 import android.os.Build;
+import android.preference.PreferenceManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,8 @@ public class BaseActivity extends AppCompatActivity implements EasyPermissions.P
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             super.attachBaseContext(newBase);
         } else {
-            super.attachBaseContext(LanguageUtil.initAppLanguage(newBase, "zh"));
+            super.attachBaseContext(LanguageUtil.initAppLanguage(newBase,
+                    PreferenceManager.getDefaultSharedPreferences(getApplication()).getString("language_name", "zh")));
         }
     }
 
@@ -52,7 +54,7 @@ public class BaseActivity extends AppCompatActivity implements EasyPermissions.P
     @Override
     public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
         if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-           new AppSettingsDialog.Builder(this).build().show();
+            new AppSettingsDialog.Builder(this).build().show();
         }
     }
 }

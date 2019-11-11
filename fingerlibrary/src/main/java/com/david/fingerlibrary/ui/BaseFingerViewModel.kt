@@ -19,7 +19,7 @@ abstract class BaseFingerViewModel(application: Application) : AndroidViewModel(
 
     abstract fun getStoreDir(): String
     //指纹图像
-    val image = MutableLiveData<Bitmap>()
+    val image = ObservableField<Bitmap>()
     var minScore: Int = 20
     var enrolCount: Int = 40
     var verifyCount: Int = 20
@@ -61,7 +61,7 @@ abstract class BaseFingerViewModel(application: Application) : AndroidViewModel(
         try {
             val file = File(getStoreDir())
             val out = FileOutputStream(file)
-            image.value!!.compress(Bitmap.CompressFormat.PNG, 100, out)
+            image.get()!!.compress(Bitmap.CompressFormat.PNG, 100, out)
             out.flush()
             out.close()
         } catch (e: Exception) {
