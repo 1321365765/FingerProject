@@ -55,6 +55,14 @@
             app:key="auto_touch"
             app:title="@string/auto_touch_title" />
 
+        <ListPreference
+            app:defaultValue="zh"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:key="language_name"
+            app:title="@string/language_title"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
 
@@ -88,5 +96,7 @@
             app:title="校准说明"
             app:summary="summary"/>
     </PreferenceCategory>
+
+
 
 </PreferenceScreen>

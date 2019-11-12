@@ -17,6 +17,7 @@ import pub.devrel.easypermissions.EasyPermissions
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.Window
 
 
 class SplashActivity : BaseActivity() {
@@ -25,6 +26,7 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        supportActionBar!!.hide()
         lottie_layer_name.setAnimation(R.raw.fingerprint_scanning)
         lottie_layer_name.speed = 0.4f
         lottie_layer_name.playAnimation()

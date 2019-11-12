@@ -8,71 +8,37 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.david.fingerlibrary.ui.EnrolViewModel
 import com.david.fingerlibrary.ui.VerifyViewModel
 import com.david.commonlibrary.base.BaseActivity
+import com.david.fingerlibrary.databinding.ActivityFingerBinding
+import com.david.fingerlibrary.ui.MainViewModel
 import kotlinx.android.synthetic.main.activity_finger.*
 
 class FingerActivity : BaseActivity() {
-    private var x1 = 0f
-    private var x2 = 0f
-    private var y1 = 0f
-    private var y2 = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_finger)
+        val binding =
+            DataBindingUtil.setContentView<ActivityFingerBinding>(this, R.layout.activity_finger)
 
         val enrolViewModel = ViewModelProviders.of(this).get(EnrolViewModel::class.java)
         val verifyViewModel = ViewModelProviders.of(this).get(VerifyViewModel::class.java)
+        val mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+
         lifecycle.addObserver(enrolViewModel)
         lifecycle.addObserver(verifyViewModel)
+        lifecycle.addObserver(mainViewModel)
 
+        binding.viewModel = mainViewModel
         val host: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?: return
 
 
 
-
-        lottie_finger.setOnTouchListener { _, motionEvent ->
-            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
-                lottie_finger.playAnimation()
-            } else {
-                lottie_finger.pauseAnimation()
-                lottie_finger.progress = 0f
-            }
-            return@setOnTouchListener true
-        }
-    }
-
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        //继承了Activity的onTouchEvent方法，直接监听点击事件
-        if (event!!.action == MotionEvent.ACTION_DOWN) {
-            //当手指按下的时候
-            x1 = event.x
-            y1 = event.y
-        }
-        if (event.action == MotionEvent.ACTION_MOVE) {
-            //当手指移动的时候
-            x2 = event.x
-            y2 = event.y
-            if (y1 - y2 > 50) {
-                Toast.makeText(this, "向上滑", Toast.LENGTH_SHORT).show()
-            } else if (y2 - y1 > 50) {
-                Toast.makeText(this, "向下滑", Toast.LENGTH_SHORT).show()
-            } else if (x1 - x2 > 50) {
-                Toast.makeText(this, "向左滑", Toast.LENGTH_SHORT).show()
-            } else if (x2 - x1 > 50) {
-                Toast.makeText(this, "向右滑", Toast.LENGTH_SHORT).show()
-            }
-        }
-        if (event.action == MotionEvent.ACTION_UP) {
-
-        }
-        return super.onTouchEvent(event)
     }
 
 

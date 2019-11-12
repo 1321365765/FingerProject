@@ -17,5 +17,8 @@ public class App extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         mHandler = new Handler(Looper.getMainLooper());
+
+
+
     }
 }

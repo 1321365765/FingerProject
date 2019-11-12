@@ -6,51 +6,64 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.Nullable
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 import androidx.preference.PreferenceManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.david.fingerlibrary.R
+import com.david.fingerlibrary.entity.HeandEntity
 import timber.log.Timber
+import java.util.ArrayList
 
-class MainViewModel(application: Application) : AndroidViewModel(application), LifecycleObserver,
-    SharedPreferences.OnSharedPreferenceChangeListener {
-    var navigate: Navigate? = null
+class MainViewModel(application: Application) : BaseFingerViewModel(application) {
+    override fun reData() {
 
-    interface Navigate {
-        fun navigate(@IdRes resId: Int, @Nullable args: Bundle)
+    }
+
+    override fun getStoreDir(): String {
+        return "$dir/$store/$user"
+    }
+
+    val liveData = MutableLiveData<Bundle>()
+    val leftHeandEntity = MutableLiveData<HeandEntity>()
+    val rightHeandEntity = MutableLiveData<HeandEntity>()
+
+
+    init {
+        leftHeandEntity.value = HeandEntity()
+        rightHeandEntity.value = HeandEntity()
+
+        rightHeandEntity.value!!.initData(getStoreDir(),enrolCount,verifyCount)
+        leftHeandEntity.value!!.initData(getStoreDir(),enrolCount,verifyCount)
+
     }
 
     override fun onSharedPreferenceChanged(p0: SharedPreferences?, s: String?) {
         Timber.i("key = $s")
+
     }
 
 
-    fun onRightFingerClick(view: View) {
+    fun onRightFingerClick(view: View,enrol:Int,verify:Int) {
+
+        val finger = view.tag.toString()
+        val args = Bundle()
+        args.putString("hand", "right")
+        args.putString("finger", finger)
+
+        args.putInt("enrolCount", enrol)
+        args.putInt("verifyCount", verify)
+        liveData.value = args
     }
 
     fun onLeftFingerClick(view: View) {
+        Timber.i(view.tag.toString())
+        val args = Bundle()
+        args.putString("hand", "left")
+        args.putString("finger", view.tag.toString())
         //获取选择手指的采集的指纹数量
-
-        MaterialDialog(view.context)
-            .listItems { dialog, index, text ->
-
-            }
+        liveData.value = args
     }
 
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .registerOnSharedPreferenceChangeListener(this)
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .unregisterOnSharedPreferenceChangeListener(this)
-    }
 }

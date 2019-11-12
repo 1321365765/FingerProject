@@ -11,6 +11,9 @@ import java.io.File
 import java.io.FileOutputStream
 
 class EnrolViewModel(application: Application) : BaseFingerViewModel(application) {
+    override fun reData() {
+
+    }
 
     override fun getStoreDir(): String {
         return dir + File.separator + store + "/users/enrol/" + user
@@ -25,11 +28,7 @@ class EnrolViewModel(application: Application) : BaseFingerViewModel(application
 
 
     init {
-        val settings = PreferenceManager.getDefaultSharedPreferences(application)
 
-        minScore = settings.getString("verify_count", "20")!!.toInt()
-        enrolCount = settings.getString("enrol_count", "40")!!.toInt()
-        dir = Environment.getExternalStorageDirectory().absolutePath
     }
 
 
@@ -38,10 +37,6 @@ class EnrolViewModel(application: Application) : BaseFingerViewModel(application
     //当前采集进度
     val progress = MutableLiveData<Long>()
 
-    //用户名称
-    val user: String = ""
-    //保存地址
-    val store: String = ""
     /**
      * 选择的手指
      *  小指 Little finger
@@ -62,16 +57,5 @@ class EnrolViewModel(application: Application) : BaseFingerViewModel(application
     }
 
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .registerOnSharedPreferenceChangeListener(this)
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
-        PreferenceManager.getDefaultSharedPreferences(getApplication())
-            .unregisterOnSharedPreferenceChangeListener(this)
-    }
 
 }

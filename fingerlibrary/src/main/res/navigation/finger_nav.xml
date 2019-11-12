@@ -9,15 +9,14 @@
         android:name="com.david.fingerlibrary.ui.MainFragment"
         android:label="MainFragment">
 
+       <!-- app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"-->
 
         <action
             android:id="@+id/action_mainFragment_to_enrolFragment"
-            app:destination="@id/enrolFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
+            app:destination="@id/enrolFragment" />
         <action
             android:id="@+id/action_mainFragment_to_verifyFragment"
             app:destination="@id/verifyFragment" />

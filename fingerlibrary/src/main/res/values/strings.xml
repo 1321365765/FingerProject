@@ -13,6 +13,7 @@
     <string name="enrol_title">enrol数量</string>
     <string name="verify_title">verify数量</string>
     <string name="auto_touch_title">自动检测Touch</string>
+    <string name="language_title">语言</string>
 
     <string name="store_title">store</string>
     <string name="user_title">用户id</string>
