@@ -3,5 +3,5 @@
     android:color="@android:color/background_dark" >
     <!--为drawable 赋一个color 值，是不生效的-->
     <item
-        android:drawable="@android:color/transparent" />
+        android:drawable="@drawable/hand_circle" />
 </ripple>
